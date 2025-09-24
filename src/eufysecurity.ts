@@ -1271,7 +1271,7 @@ export class EufySecurity extends TypedEmitter<EufySecurityEvents> {
             case PropertyName.DeviceNotificationPerson:
                 if (device.isIndoorPanAndTiltCameraS350()) {
                     station.setNotificationIndoor(device, IndoorS350NotificationTypes.HUMAN, value as boolean);
-                } else if (device.isFloodLightT8425()) {
+                } else if (device.isFloodLightT8425() || device.isFloodLightT8426()) {
                     station.setNotificationFloodlightT8425(device, FloodlightT8425NotificationTypes.HUMAN, value as boolean);
                 } else {
                     station.setNotificationPerson(device, value as boolean);
@@ -1289,7 +1289,7 @@ export class EufySecurity extends TypedEmitter<EufySecurityEvents> {
             case PropertyName.DeviceNotificationAllOtherMotion:
                 if (device.isIndoorPanAndTiltCameraS350()) {
                     station.setNotificationIndoor(device, IndoorS350NotificationTypes.ALL_OTHER_MOTION, value as boolean);
-                } else if (device.isFloodLightT8425()) {
+                } else if (device.isFloodLightT8425() || device.isFloodLightT8426()) {
                     station.setNotificationFloodlightT8425(device, FloodlightT8425NotificationTypes.ALL_OTHER_MOTION, value as boolean);
                 } else {
                     station.setNotificationAllOtherMotion(device, value as boolean);
@@ -1310,7 +1310,7 @@ export class EufySecurity extends TypedEmitter<EufySecurityEvents> {
                 }
                 break;
             case PropertyName.DeviceNotificationVehicle:
-                if (device.isFloodLightT8425()) {
+                if (device.isFloodLightT8425() || device.isFloodLightT8426()) {
                     station.setNotificationFloodlightT8425(device, FloodlightT8425NotificationTypes.VEHICLE, value as boolean);
                 } else {
                     throw new InvalidPropertyError("Station has no writable property", { context: { station: station.getSerial(), propertyName: name, propertyValue: value } });

@@ -397,6 +397,12 @@ export enum FloodlightT8425NotificationTypes {
     VEHICLE = 512,
 }
 
+export enum FloodlightT8426NotificationTypes {
+    ALL_OTHER_MOTION = 1,
+    HUMAN = 2,
+    VEHICLE = 512,
+}
+
 export enum VideoType {
     RECEIVED_RING = 1000,
     MISSED_RING = 1001,
